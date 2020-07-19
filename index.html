@@ -1,0 +1,85 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download Manager</title>
+
+    <link rel="stylesheet" href="bootstrap.css" />
+  </head>
+  <body>
+    <br />
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Here are your downloads.</h1>
+        <p class="text-muted">There are <b id="ds-len"></b> downloads. Wow!</p>
+      </div>
+      <hr />
+      <div class="alert alert-danger">
+        <h3>Hold up!</h3>
+        Sometimes the filetype detector may not be accurate.
+        <b>There is no way to change this.</b>
+        <hr />
+        <small>This feature is being worked on now.</small>
+      </div>
+      <hr />
+      <h3>Options</h3>
+      <a href="#" class="btn btn-primary" onclick="sort()" id="sort"
+        >Sort files</a
+      >
+      <a href="#" class="btn btn-outline-danger disabled">Delete files</a>
+      <a href="#" class="btn btn-outline-info disabled">Filter</a>
+      <br />
+      <small class="text-muted">Files are sorted by file types.</small>
+
+      <h5>Search for files</h5>
+      <input
+        class="form-control"
+        type="text"
+        name="filename"
+        id="filename-search"
+        placeholder="Filename..."
+      />
+      <script>
+        document.getElementById(
+          "filename-search"
+        ).onkeyup = function checkFiles() {
+          var q = document.getElementById("filename-search").value;
+          var qu = q.toUpperCase();
+          var files = document.getElementsByClassName("filename");
+          var len = Object.keys(files).length;
+          var arr = 0;
+          while (arr < len) {
+            var parent = files[arr].parentElement;
+            var filename = files[arr].textContent.toUpperCase();
+            if (filename.includes(qu)) {
+              parent.style.display = "block";
+            } else {
+              parent.style.display = "none";
+            }
+            arr++;
+          }
+        };
+      </script>
+
+      <hr />
+
+      <div id="ds"></div>
+
+      <hr />
+
+      <p class="text-muted">
+        <b>Download Manager</b> - &copy; Owen M. - Nothing loading? Try
+        <a href="#" onclick="window.location = window.location">this</a>.
+      </p>
+
+      <hr />
+
+      <p class="text-muted">
+        <a href="#" onclick="window.close()">Exit</a> - <a href="#">GitHub</a> -
+        <a href="#">Documentation</a>
+      </p>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

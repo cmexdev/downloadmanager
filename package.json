@@ -1,0 +1,23 @@
+{
+  "name": "downloadmanager",
+  "version": "1.0.0",
+  "description": "Sort your downloads within seconds.",
+  "main": "index.js",
+  "dependencies": {
+    "electron": "^9.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Piccolowen/downloadmanager.git"
+  },
+  "author": "Owen M.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Piccolowen/downloadmanager/issues"
+  },
+  "homepage": "https://github.com/Piccolowen/downloadmanager#readme"
+}
