@@ -36,7 +36,7 @@ Example:
 {
   "fileTypes": [
     {
-      "mkv": "C:\\mkv"
+      "msi": "C:\\msi"
     }
   ]
 }
