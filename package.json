@@ -4,7 +4,7 @@
   "description": "Sort your downloads within seconds.",
   "main": "index.js",
   "dependencies": {
-    "electron": "^9.1.0",
+    "electron": "^9.3.0",
     "electron-packager": "^15.0.0"
   },
   "devDependencies": {},
