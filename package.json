@@ -7,7 +7,7 @@
     "colors": "^1.4.0",
     "discord-rpc": "^3.1.4",
     "discord.js": "^12.3.1",
-    "electron": "^9.1.0",
+    "electron": "^9.3.3",
     "electron-packager": "^15.0.0"
   },
   "devDependencies": {},
@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Piccolowen/downloadmanager.git"
+    "url": "git+https://github.com/cmexdev/downloadmanager.git"
   },
   "author": "Owen M.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Piccolowen/downloadmanager/issues"
+    "url": "https://github.com/cmexdev/downloadmanager/issues"
   },
-  "homepage": "https://github.com/Piccolowen/downloadmanager#readme"
+  "homepage": "https://github.com/cmexdev/downloadmanager#readme"
 }
