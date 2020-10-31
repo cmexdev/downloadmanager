@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download Manager</title>
 
-  <link rel="stylesheet" href="src/boot/bootstrap.css" />
+  <link rel="stylesheet" href="src/bootstrap-5.0.0-alpha2-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="src/css.css">
 
   <script src="src/feather.js"></script>
@@ -23,9 +23,23 @@
   </span>
 
   <div id="main" role="main">
-    <div class="jumbotron">
-      <h1>Here are your downloads.</h1>
-      <p class="text-muted">There are <b id="ds-len"></b> downloads in <b id="ds-folder"></b>.</p>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <h1 class="navbar-brand">
+          <img src="src/dm.svg" alt="" width="30" height="24"
+            class="d-inline-block align-top">
+          Download Manager
+        </h1>
+      </div>
+    </nav>
+    <br>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">Here are your downloads.</h1>
+          <p class="text-muted card-subtitle">There are <b id="ds-len"></b> downloads in <b id="ds-folder"></b>.</p>
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -78,6 +92,10 @@
       <hr />
 
       <div id="ds">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <br>
         <p class="text-muted">
           If nothing is showing, that probably means that
           <code>settings.json</code> could not be found or the downloads folder
@@ -152,6 +170,7 @@
   <script>
     feather.replace()
   </script>
+  <script src="src/bootstrap-5.0.0-alpha2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 <style>
   .filename-c:hover {

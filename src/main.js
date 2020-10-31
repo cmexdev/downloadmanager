@@ -80,7 +80,7 @@ window.onload = function start() {
 
                     if (stat.size == 0) {
                         filetype = 'Directory'
-                        badgeclass = 'badge badge-warning'
+                        badgeclass = 'badge bg-warning'
                         fullfilepath += '\\'
                     }
                     else {
@@ -89,18 +89,18 @@ window.onload = function start() {
                             var lastitem = Object.keys(split).length - 1
                             filetype = split[lastitem]
                             if (filetype == 'zip') {
-                                badgeclass = 'badge badge-success'
+                                badgeclass = 'badge bg-success'
                             }
                             else if (filetype == 'exe') {
-                                badgeclass = 'badge badge-danger'
+                                badgeclass = 'badge bg-danger'
                             }
                             else {
-                                badgeclass = 'badge badge-primary'
+                                badgeclass = 'badge bg-primary'
                             }
                         }
                         else {
                             filetype = 'Empty file type'
-                            badgeclass = 'badge badge-danger'
+                            badgeclass = 'badge bg-danger'
                         }
                     }
 
@@ -119,7 +119,7 @@ window.onload = function start() {
 
                     var filename = document.createElement('h5')
                     if (filetype == 'Directory') {
-                        filename.innerHTML = '<span data-feather="folder"></span> ' + files[arr] + ' '
+                        filename.innerHTML = '<span data-feather="folder"></span> ' + files[arr]
                     }
                     else if (filetype == 'mp4') {
                         filename.innerHTML = '<span data-feather="film"></span> ' + files[arr]
@@ -151,6 +151,7 @@ window.onload = function start() {
                     else {
                         filename.innerHTML = '<span data-feather="file-text"></span> ' + files[arr]
                     }
+                    filename.innerHTML += ' '
                     filename.href = '#'
                     filename.className = 'filename'
                     filename.id = fullfilepath
