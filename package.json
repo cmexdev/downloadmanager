@@ -7,7 +7,7 @@
     "colors": "^1.4.0",
     "discord-rpc": "^3.1.4",
     "discord.js": "^12.3.1",
-    "electron": "^9.1.0",
+    "electron": "^9.3.1",
     "electron-packager": "^15.0.0"
   },
   "devDependencies": {},
