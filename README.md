@@ -18,6 +18,8 @@ Pretty simple: just click the 'Sort files' button on the main screen.
 
 ## Repository info
 
+### THIS REPOSITORY WILL NOT BE UPDATED
+
 This repository is missing the `electron.exe` file in the Electron module. **If you are building from the source code**, you need to run `npm install electron` in the project directory.
 
 ## `settings.json` syntax.

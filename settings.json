@@ -2,8 +2,27 @@
     "downloadsFolder": "C:\\Users\\ownst\\Downloads",
     "fileTypes": [
         {
-            "mkv": "C:\\code"
+            "mkv": "C:\\code",
+            "pdf": "C:\\Users\\ownst\\Documents"
         }
     ],
-    "dmElse": "C:\\Users\\ownst\\Downloads"
+    "dmElse": "C:\\Users\\ownst\\Downloads",
+    "background": [
+        {
+            "watchDownloads": true,
+            "watchDownlaodsUseAdvanced": true,
+            "watchDownloadsAdvanced": [
+                {
+                    "watchFileType": true,
+                    "watchFileTypes": [
+                        "mkv",
+                        "jfif"
+                    ]
+                }
+            ]
+        }
+    ],
+    "view": {
+        "type": "cards3"
+    }
 }

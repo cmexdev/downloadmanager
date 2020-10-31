@@ -1,44 +1,58 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Download Manager</title>
+<html lang="en" id="html">
 
-    <link rel="stylesheet" href="bootstrap.css" />
-  </head>
-  <body>
-    <br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download Manager</title>
+
+  <link rel="stylesheet" href="src/bootstrap.css" />
+  <link rel="stylesheet" href="src/css.css">
+
+  <script src="src/feather.js"></script>
+</head>
+
+<body>
+  <span id="item-context-menu">
+    <ul>
+      <li class="cm-top cm-item" id="cmopen"><span data-feather="edit"></span> Open item</li>
+      <li class="cm-item cm-m" id="cmsort"><span data-feather="archive"></span> Sort item</li>
+      <li class="cm-item cm-m" id="cmmove"><span data-feather="corner-down-right"></span> Move item...</li>
+      <li class="cm-item cm-m" id="cmcopy"><span data-feather="copy"></span> Copy path</li>
+      <li class="cm-item cm-bottom" id="cmdelete"><span data-feather="trash-2"></span> Delete</li>
+    </ul>
+  </span>
+
+  <div id="main" role="main">
+    <div class="jumbotron">
+      <h1>Here are your downloads.</h1>
+      <p class="text-muted">There are <b id="ds-len"></b> downloads in <b id="ds-folder"></b>.</p>
+    </div>
+
     <div class="container">
-      <div class="jumbotron">
-        <h1>Here are your downloads.</h1>
-        <p class="text-muted">There are <b id="ds-len"></b> downloads. Wow!</p>
-      </div>
-      <hr />
-      <div class="alert alert-danger">
-        <h3>Hold up!</h3>
-        Sometimes the filetype detector may not be accurate.
-        <b>There is no way to change this.</b>
-        <hr />
-        <small>This feature is being worked on now.</small>
-      </div>
-      <hr />
       <h3>Options</h3>
-      <a href="#" class="btn btn-primary" onclick="sort()" id="sort"
-        >Sort files</a
-      >
-      <a href="#" class="btn btn-outline-danger disabled">Delete files</a>
-      <a href="#" class="btn btn-outline-info disabled">Filter</a>
+      <nav class="nav border rounded justify-content-center">
+        <button class="btn btn-link nav-item" onclick="sort('sortall')"><span data-feather="archive"></span>
+          Sort</button>
+        <button class="btn btn-link"><span data-feather="corner-down-right"></span> Move...</button>
+        <button class="btn btn-link" onclick="openTerminal('dmfolder')"><span data-feather="terminal"></span>
+          Terminal</button>
+        <button class="btn btn-link disabled"><span data-feather="filter"></span> Filter results</button>
+        <button class="btn btn-link" onclick="window.location.hash = '#settings'"><span data-feather="settings"></span>
+          Settings</button>
+        <button class="btn btn-link" onclick="window.location = window.location"><span data-feather="rotate-cw"></span>
+          Reload</button>
+      </nav>
+
       <br />
-      <small class="text-muted">Files are sorted by file types.</small>
 
       <h5>Search for files</h5>
-      <input
-        class="form-control"
-        type="text"
-        name="filename"
-        id="filename-search"
-        placeholder="Filename..."
-      />
+      <div class="input-group flex-nowrap">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping"><span data-feather="file"></span></span>
+        </div>
+        <input name="filename" id="filename-search" type="text" class="form-control" placeholder="filename.txt"
+          aria-label="Username" aria-describedby="addon-wrapping">
+      </div>
       <script>
         document.getElementById(
           "filename-search"
@@ -63,23 +77,86 @@
 
       <hr />
 
-      <div id="ds"></div>
+      <div id="ds">
+        <p class="text-muted">
+          If nothing is showing, that probably means that
+          <code>settings.json</code> could not be found or the downloads folder
+          specified was not found.
+        </p>
+      </div>
+
+      <hr>
+
+      <h3 id="settings">Settings</h3>
+      <label for="df">Downloads Location <i>Current location: <b id="dff"></b></i></label>
+      <input class="form-control" type="file" id="df" webkitdirectory placeholder="Folder chooser">
+
+      <br>
+
+      <label for="dmelse">DownloadManager Else Folder <a
+          href="https://piccolowen.github.io/downloadmanager/docs/#dm-else-folder"><span
+            data-feather="help-circle"></span></a></label>
+      <input class="form-control" type="text" id="dmelse">
+
+      <br>
+
+      <select name="theme" id="dmtheme" class="form-control">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+      <script>
+        var t = document.getElementById('dmtheme')
+        t.addEventListener('change', function(e) {
+          if (t.value == 'light') {
+            document.getElementById('html').style.filter = 'invert(0)'
+          }
+          else {
+            document.getElementById('html').style.filter = 'invert(1)'
+          }
+        })
+      </script>
 
       <hr />
 
       <p class="text-muted">
-        <b>Download Manager</b> - &copy; Owen M. - Nothing loading? Try
-        <a href="#" onclick="window.location = window.location">this</a>.
+        <b>Download Manager</b> - Created by Owen Magill
       </p>
 
       <hr />
 
       <p class="text-muted">
-        <a href="#" onclick="window.close()">Exit</a> - <a href="#">GitHub</a> -
-        <a href="#">Documentation</a>
+        <a href="#" onclick="window.close()">Exit</a> -
+        <a href="#" id="github-link">GitHub</a> - Documentation
       </p>
+      <script>
+        const shell = require("electron").shell;
+
+        document.getElementById("github-link").onclick = function openGit() {
+          shell.openExternal("https://github.com/piccolowen/downloadmanager");
+        };
+      </script>
     </div>
+  </div>
 
-    <script src="main.js"></script>
-  </body>
+  <div name="copymanager" id="tocopyto"></div>
+
+  <div id="movenewpathdialog" class="bg-dark text-white p-3" hidden>
+    <label for="movenewpathin">Path to move item to</label> <span id="movenewpathdialogclose" class="text-danger"><span
+        data-feather="x"></span> Cancel</span>
+    <input type="text" id="movenewpathin" class="form-control" placeholder="C:\SomePath\To\ANewPlace\">
+    <br>
+    <button id="movenewpathdialoggo" class="btn btn-sm btn-outline-primary">Move item</button>
+  </div>
+
+  <script defer src="src/main.js"></script>
+  <script>
+    feather.replace()
+  </script>
+</body>
+<style>
+  .filename-c:hover {
+    cursor: default;
+  }
+</style>
+
 </html>

@@ -1,0 +1,41 @@
+#item-context-menu {
+        display: none;
+        z-index: 100;
+      }
+      .cm-menu {
+        border: 2.5px solid;
+        padding: 5px;
+      }
+      .cm-top {
+        border-top: 1px solid;
+        border-left: 1px solid;
+        border-right: 1px solid;
+      }
+      .cm-m {
+        border-left: 1px solid;
+        border-right: 1px solid;
+      }
+      .cm-bottom {
+        border-bottom: 1px solid;
+        border-left: 1px solid;
+        border-right: 1px solid;
+      }
+      .cm-item {
+        /*position: absolute;*/
+        display:block;
+        left:0px;
+        top:0px;
+        /*height:30px;
+        width:100px;*/
+        padding:5px;
+        margin:0;
+        /*border:1px solid;*/
+        background-color:white;
+        font-weight:normal;
+        /*white-space:nowrap;*/
+      }
+      .cm-item:hover {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
