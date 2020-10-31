@@ -82,7 +82,7 @@ function createWindow() {
                 {
                     label: 'GitHub',
                     click() {
-                        shell.openExternal('https://github.com/piccolowen/downloadmanager')
+                        shell.openExternal('https://github.com/cmxdev/downloadmanager')
                     },
                     accelerator: 'CmdOrCtrl+Shift+G'
                 }

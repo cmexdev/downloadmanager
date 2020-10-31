@@ -193,7 +193,7 @@ window.onload = function start() {
     }
 }
 
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function rclickfile(event) {
     if (document.getElementById('item-context-menu').style.display != 'none') {
         document.getElementById('item-context-menu').style.display = 'none'
     }
@@ -254,23 +254,24 @@ document.getElementById('cmcopy').onclick = function copyPath() {
     document.body.removeChild(el)
 }
 
-document.getElementById('cmmove').onclick = function moveItem() {
+document.getElementById('cmmove').addEventListener('click', function moveItem(e) {
     var oldpath = document.getElementById('item-context-menu').getAttribute('cmel')
     console.log(oldpath)
-    move('single', oldpath)
-}
+    move('single', oldpath, e)
+})
 
-function move(action, oldpath) {
+function move(action, oldpath, eventdetails) {
     //get new path
-    console.log(oldpath)
     var dialog = document.getElementById('movenewpathdialog')
     dialog.hidden = false
     dialog.style.position = 'absolute'
     document.getElementById('main').style.opacity = '50%'
     dialog.style.left = '100px'
-    dialog.style.top = '100px'
+    dialog.style.top = eventdetails.pageY + -400 + 'px'
 }
-document.getElementById('movenewpathdialoggo').onclick = moveNow(document.getElementById('item-context-menu').getAttribute('cmel'), document.getElementById('movenewpathin').value)
+document.getElementById('movenewpathdialoggo').addEventListener('onclick', function(e) {
+    moveNow(document.getElementById('item-context-menu').getAttribute('cmel'), document.getElementById('movenewpathin').value)  
+})
 function moveNow(oldpath, newpath) {
     fs.renameSync(oldpath, newpath)
     console.log('moved?')

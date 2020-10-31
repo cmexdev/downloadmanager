@@ -2,24 +2,14 @@
 
 Sort your downloads within seconds.
 
-## What does it sort by?
-
-As of right now, it only sorts by file types. Eventually, you will be able to sort by certain strings.
-
-Here is a list of the current sort filters.
-
-- File types
-
 ## How do I sort my files?
 
 Pretty simple: just click the 'Sort files' button on the main screen.
 
-**Future update**: the button brings up a popup window that allows users to choose the type of sorting.
-
 ## `settings.json` syntax.
 
-- `downloadsFolder`: specifies what folder is your download folder
-- `fileTypes`: contains the filetypes that you want to sort
+- `downloadsFolder` (required): specifies what folder is your download folder
+- `fileTypes` (required): contains the filetypes that you want to sort
 - `dmElse`: the path that files that don't match any sort-able filetypes go (**NOT IN USE**)
 
 ## Sorting files by filetypes.
@@ -32,14 +22,26 @@ Example:
 {
   "fileTypes": [
     {
-      "msi": "C:\\msi"
+      "msi": "C:\\path\\where\\.msi\\files\\go\\"
     }
   ]
 }
 ```
 
-## Geek knowledge
+## Building from source code
 
-**Download Manager** is built on [Electron](https://electronjs.org "Electron") and uses Node.js's [filesystem module](https://nodejs.org/api/fs.html "NodeJS FS Module").
+After downloading/cloning the repository, in that directory, run:
 
-This program can be used on really any folders that you want to organize.
+```txt
+npm install
+```
+
+This will install the packages required to run downloadmanager. (You may not need to do this step.)
+
+After installing the packages, run:
+
+```txt
+npm start
+```
+
+This will start downloadmanager from source code!
