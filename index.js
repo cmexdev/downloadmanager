@@ -27,15 +27,6 @@ function createWindow() {
         }
     })
 
-    /*const hiddenWorker = new BrowserWindow({
-        show: true,
-        webPreferences: {
-            nodeIntegration: true
-        }
-    })
-
-    hiddenWorker.loadFile('worker.html')*/
-
     var menu = Menu.buildFromTemplate([
         {
             label: 'File',
